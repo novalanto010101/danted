@@ -1,0 +1,10 @@
+sudo apt update && sudo apt -y install net-tools
+wget http://ppa.launchpad.net/dajhorn/dante/ubuntu/pool/main/d/dante/dante-server_1.4.1-1_amd64.deb
+sudo apt-get install gdebi-core
+sudo gdebi dante-server_1.4.1-1_amd64.deb
+rm -rf /etc/danted.conf
+wget https://github.com/novalanto010101/danted/raw/main/danted.conf
+chmod 777 danted.conf
+cp danted.conf /etc/
+service danted start
+netstat -nlpt | grep dant
